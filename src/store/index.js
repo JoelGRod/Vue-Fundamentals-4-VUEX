@@ -21,11 +21,17 @@ const store = createStore({
             state.count += params.value
             state.lastMutation = 'incrementCounterBy'
         },
+        setIsLoading( state, isLoading ) {
+            state.isLoading = isLoading;
+            state.lastMutation = 'setLoading'
+        }
     },
     actions: {
         async incrementRndInt( context ) {
+            context.commit('setIsLoading', true)
             const rndInt = await getRandomInt()
             context.commit('incrementCounterBy', { value: rndInt })
+            context.commit('setIsLoading', false)
         }
     }
 

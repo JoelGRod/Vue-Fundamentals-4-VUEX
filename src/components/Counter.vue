@@ -11,7 +11,7 @@
   <h2>Mutations</h2>
   <button @click="increment()">+1</button>
   <button @click="incrementBy(5)">+5</button>
-  <button @click="incrementByRndInt()">+Random</button>
+  <button @click="incrementByRndInt()" :disabled="isLoading">+Random</button>
 </template>
 
 <script>
@@ -53,7 +53,7 @@ export default {
     },
     // 2º mapState
     // 2.1º Take state properties you need...
-    ...mapState(["count", "lastMutation"]),
+    ...mapState(["count", "lastMutation", "isLoading"]),
     // 2.2º allow to rename, avoid name conflicts with data
     // ...mapState({
     //     count: state => state.count,
