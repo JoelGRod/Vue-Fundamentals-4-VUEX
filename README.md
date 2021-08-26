@@ -1,4 +1,4 @@
-# 05-fundamentals-vuex
+# VUE Fundamentals - VUEX
 
 ## Project setup
 ```
