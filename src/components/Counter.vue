@@ -14,7 +14,7 @@
   <button @click="incrementByRndInt()" :disabled="isLoading">+Random</button>
 
   <h2>Getters</h2>
-  <p>Direct Getter: {{ $store.getters.squareCount }}</p>
+  <p>Direct Getter: {{ $store.getters['counter/squareCount'] }}</p>
 </template>
 
 <script>
@@ -25,10 +25,10 @@ export default {
     /* ------ Calling Mutations ------ */
     // 1º Direct commit
     increment() {
-      this.$store.commit("incrementCounter");
+      this.$store.commit("counter/incrementCounter");
     },
     incrementBy(value) {
-      this.$store.commit("incrementCounterBy", { value });
+      this.$store.commit("counter/incrementCounterBy", { value });
     },
     /* ------ Calling Actions ------- */
     // 1º Direct dispatch
@@ -41,9 +41,9 @@ export default {
     // }
     // 2º mapActions
     // 2.1º Take store actions you need...
-    // ...mapActions(['incrementRndInt'])
+    // ...mapActions('counter', ['incrementRndInt'])
     // 2.2º Allow to rename actions...
-    ...mapActions({
+    ...mapActions( 'counter', {
       incrementByRndInt: "incrementRndInt",
     }),
   },
@@ -52,15 +52,15 @@ export default {
     /* --------- Get state properties --------- */
     // 1º Direct State access
     countComputed() {
-      return this.$store.state.count;
+      return this.$store.state.counter.count;
     },
     // 2º mapState
     // 2.1º Take state properties you need...
-    ...mapState(["count", "lastMutation", "isLoading"]),
+    ...mapState( 'counter', ["count", "lastMutation", "isLoading"]),
     // 2.2º allow to rename, avoid name conflicts with data
     // ...mapState({
     //     count: state => state.count,
-    //     last: state => state.lastMutation
+    //     last: 'lastMutation'
     // })
   },
 };

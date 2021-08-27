@@ -5,7 +5,7 @@ import counterStore from "./counter";   // Take index.js directly
 const store = createStore({
 
     modules: {
-        counter: counterStore
+        counter: counterStore,
     }
     
 })
