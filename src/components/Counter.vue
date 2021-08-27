@@ -1,7 +1,7 @@
 <template>
   <h2>Counter - Vuex State Access Types</h2>
   <!-- Not recommended -->
-  <p>Direct Access: {{ $store.state.count }}</p>
+  <p>Direct Access: {{ $store.state.counter.count }}</p>
   <!-- Not recommended -->
   <p>Computed: {{ countComputed }}</p>
   <!-- Recommended -->
