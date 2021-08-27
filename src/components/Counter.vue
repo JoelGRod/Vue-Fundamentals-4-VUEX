@@ -12,6 +12,9 @@
   <button @click="increment()">+1</button>
   <button @click="incrementBy(5)">+5</button>
   <button @click="incrementByRndInt()" :disabled="isLoading">+Random</button>
+
+  <h2>Getters</h2>
+  <p>Direct Getter: {{ $store.getters.squareCount }}</p>
 </template>
 
 <script>

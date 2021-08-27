@@ -12,6 +12,11 @@ const store = createStore({
             isLoading: false
         }
     },
+    getters: {
+        squareCount( state ) {
+            return state.count * state.count
+        }
+    },
     mutations: {
         incrementCounter( state ) {
             state.count++
@@ -33,8 +38,7 @@ const store = createStore({
             context.commit('incrementCounterBy', { value: rndInt })
             context.commit('setIsLoading', false)
         }
-    }
-
+    },
 })
 
 export default store
